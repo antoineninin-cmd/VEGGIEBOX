@@ -1,0 +1,603 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>VEGGIEBOX – Bring the Garden to Your City Apartment</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --green: #4CAF50;
+      --green-dark: #2f6e33;
+      --brown: #9B6B43;
+      --black: #121212;
+      --bg: radial-gradient(circle at top, #f9f8f4 0%, #f3eee4 60%, #fefefe 100%);
+      --card: #ffffff;
+      --radius: 1.4rem;
+      --shadow: 0 20px 50px rgba(0,0,0,.06);
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: "Poppins", sans-serif;
+      background: var(--bg);
+      color: var(--black);
+      line-height: 1.6;
+      scroll-behavior: smooth;
+    }
+    a { text-decoration: none; color: inherit; }
+
+    /* NAV */
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: rgba(249,248,244,.95);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid rgba(0,0,0,.03);
+    }
+    .nav {
+      max-width: 1180px;
+      margin: 0 auto;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 1rem;
+      padding: .8rem 1.1rem;
+    }
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: .5rem;
+      font-weight: 600;
+      color: var(--black);
+    }
+    .brand-icon {
+      width: 36px;
+      height: 36px;
+      border-radius: 1rem;
+      background: linear-gradient(150deg, var(--green) 0%, #bff0c6 100%);
+      display: grid;
+      place-items: center;
+      color: #fff;
+      font-weight: 700;
+      font-size: .8rem;
+      box-shadow: 0 10px 25px rgba(76,175,80,.3);
+    }
+    .nav-links {
+      display: flex;
+      gap: 1rem;
+    }
+    .nav-links a {
+      font-size: .9rem;
+      opacity: .75;
+      transition: .15s;
+    }
+    .nav-links a:hover,
+    .nav-links a.active {
+      opacity: 1;
+      color: var(--green-dark);
+    }
+    .btn {
+      background: linear-gradient(140deg, var(--green) 0%, #7bd986 100%);
+      color: #fff;
+      border: none;
+      border-radius: 999px;
+      padding: .55rem 1.3rem;
+      font-weight: 500;
+      cursor: pointer;
+      box-shadow: 0 12px 25px rgba(76,175,80,.38);
+      transition: transform .15s ease;
+    }
+    .btn:hover { transform: translateY(-1px); }
+
+    /* HERO */
+    .hero {
+      min-height: 84vh;
+      max-width: 1180px;
+      margin: 0 auto;
+      padding: 1.8rem 1.1rem 3rem;
+      display: grid;
+      grid-template-columns: 1.05fr .9fr;
+      gap: 2rem;
+      align-items: center;
+    }
+    .hero-left small {
+      opacity: .6;
+      font-size: .75rem;
+    }
+    .hero-title {
+      font-size: clamp(3rem, 6vw, 4rem);
+      line-height: .9;
+      margin: 1.1rem 0 .8rem;
+      letter-spacing: -.03em;
+    }
+    .hero-slogan {
+      font-size: 1.05rem;
+      font-weight: 500;
+      margin-bottom: 1rem;
+      color: var(--brown);
+    }
+    .group-names {
+      background: rgba(255,255,255,.8);
+      border: 1px solid rgba(155,107,67,.1);
+      display: inline-block;
+      padding: .4rem .85rem;
+      border-radius: .85rem;
+      font-size: .8rem;
+      backdrop-filter: blur(6px);
+      margin-bottom: 1.4rem;
+      box-shadow: 0 10px 20px rgba(155,107,67,.08);
+    }
+    .hero-actions {
+      display: flex;
+      gap: .9rem;
+      flex-wrap: wrap;
+      align-items: center;
+    }
+    .hero-right {
+      background-image: url("https://images.unsplash.com/photo-1490772888775-55fceea286b0?auto=format&fit=crop&w=1100&q=70");
+      background-size: cover;
+      background-position: center;
+      border-radius: 1.6rem;
+      min-height: 360px;
+      position: relative;
+      box-shadow: var(--shadow);
+      overflow: hidden;
+    }
+    .hero-overlay {
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(circle, rgba(10,32,15,.05), rgba(0,0,0,.38));
+    }
+    .hero-card {
+      position: absolute;
+      bottom: 1.1rem;
+      left: 1.1rem;
+      background: rgba(255,255,255,.96);
+      border-radius: 1.2rem;
+      padding: .8rem 1rem;
+      max-width: 290px;
+      box-shadow: 0 16px 40px rgba(0,0,0,.12);
+    }
+    .badge {
+      position: absolute;
+      top: 1.1rem;
+      right: 1.1rem;
+      background: rgba(255,255,255,.2);
+      border: 1px solid rgba(255,255,255,.6);
+      border-radius: 999px;
+      padding: .25rem .7rem;
+      font-size: .7rem;
+      color: #fff;
+    }
+
+    section { scroll-margin-top: 80px; }
+    .wrapper {
+      max-width: 1180px;
+      margin: 0 auto;
+      padding: 3.3rem 1.1rem;
+    }
+    .section-title {
+      font-size: 2rem;
+      margin-bottom: 1.4rem;
+      display: flex;
+      justify-content: space-between;
+      gap: 1rem;
+      align-items: center;
+    }
+    .section-title small { opacity: .6; }
+
+    /* ABOUT */
+    #about {
+      display: grid;
+      grid-template-columns: 1.1fr 1fr 1.1fr;
+      gap: 1.6rem;
+      align-items: center;
+    }
+    .about-title { font-size: 1.5rem; margin-bottom: .3rem; }
+    .about-sub { font-weight: 500; margin-bottom: 1rem; color: var(--green-dark); }
+    .about-text { font-size: .87rem; opacity: .78; }
+    .about-middle { display: grid; place-items: center; }
+    .plant-card {
+      background: radial-gradient(circle, #fff 0%, #e1f3db 100%);
+      border-radius: 1.4rem;
+      padding: 1.1rem;
+      box-shadow: 0 14px 40px rgba(0,0,0,.06);
+      text-align: center;
+    }
+    .plant-card img {
+      width: 190px;
+      border-radius: 1.2rem;
+      display: block;
+      margin: 0 auto .5rem;
+    }
+
+    /* PORTRAITS / WHAT'S INSIDE */
+    #portraits .content {
+      display: grid;
+      grid-template-columns: 1.05fr .95fr;
+      gap: 1.5rem;
+      align-items: center;
+    }
+    .box-list {
+      background: #fff;
+      border-radius: 1.4rem;
+      padding: 1.1rem 1.2rem;
+      box-shadow: 0 16px 40px rgba(0,0,0,.04);
+      border-left: 4px solid rgba(155,107,67,.25);
+    }
+    .box-list ul { padding-left: 1rem; margin-bottom: 1rem; }
+    .quote-box {
+      background: rgba(155,107,67,.12);
+      border-left: 3px solid rgba(155,107,67,.6);
+      border-radius: 1rem;
+      padding: .6rem .8rem;
+      font-style: italic;
+      font-size: .9rem;
+    }
+    .img-apartment {
+      background-image: url("https://images.unsplash.com/photo-1523362628745-0c100150b504?auto=format&fit=crop&w=1100&q=70");
+      background-size: cover;
+      background-position: center;
+      border-radius: 1.4rem;
+      min-height: 330px;
+      position: relative;
+      overflow: hidden;
+      box-shadow: 0 20px 45px rgba(0,0,0,.12);
+    }
+    .img-apartment .label {
+      position: absolute;
+      bottom: 1rem;
+      right: 1rem;
+      background: rgba(255,255,255,.95);
+      padding: .5rem .8rem;
+      border-radius: 1rem;
+      font-size: .72rem;
+      max-width: 220px;
+      border: 1px solid rgba(155,107,67,.1);
+    }
+
+    /* OTHERS */
+    #others .grid-others {
+      display: grid;
+      grid-template-columns: 1.1fr 1.1fr;
+      gap: 1.3rem;
+      margin-bottom: 2.5rem;
+    }
+    .card {
+      background: #fff;
+      border-radius: 1.4rem;
+      padding: 1rem 1.1rem 1.25rem;
+      box-shadow: 0 16px 40px rgba(0,0,0,.03);
+    }
+    .visions-illustrations {
+      display: flex;
+      gap: .6rem;
+      flex-wrap: wrap;
+    }
+    .vision-pill {
+      background: rgba(76,175,80,.12);
+      border: 1px solid rgba(76,175,80,.12);
+      padding: .4rem .8rem;
+      border-radius: .9rem;
+      font-size: .78rem;
+    }
+    .testimonials {
+      background: #fff;
+      border-radius: 1.2rem;
+      padding: 1.1rem;
+      display: grid;
+      grid-template-columns: minmax(210px, .6fr) 1fr;
+      gap: 1.2rem;
+      align-items: center;
+      box-shadow: 0 12px 28px rgba(0,0,0,.03);
+    }
+    .product-illu {
+      background: linear-gradient(150deg, rgba(155,107,67,.08), rgba(76,175,80,.18));
+      border-radius: 1rem;
+      display: grid;
+      place-items: center;
+      font-size: 3rem;
+      min-height: 180px;
+    }
+    .reviews { display: grid; gap: .85rem; }
+    .review {
+      background: rgba(249,248,244,0.7);
+      border-radius: 1rem;
+      padding: .4rem .6rem .6rem;
+      border-left: 4px solid rgba(76,175,80,.25);
+    }
+
+    /* CONTACT */
+    #contact .contact-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0,1fr));
+      gap: 1rem;
+      margin-bottom: 1.5rem;
+    }
+    .contact-card {
+      background: #fff;
+      border-radius: 1.1rem;
+      padding: 1rem 1rem 1.2rem;
+      box-shadow: 0 8px 20px rgba(0,0,0,.03);
+    }
+    .newsletter {
+      background: #fff;
+      border-radius: 1rem;
+      padding: 1.1rem;
+      box-shadow: 0 8px 20px rgba(0,0,0,.03);
+      display: flex;
+      gap: .6rem;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+    }
+    .newsletter form {
+      display: flex;
+      gap: .5rem;
+      flex-wrap: wrap;
+    }
+    input[type="email"],
+    input[type="text"] {
+      border: 1px solid rgba(0,0,0,0.05);
+      border-radius: .9rem;
+      padding: .5rem .7rem;
+      font-family: inherit;
+      min-width: 210px;
+      background: #fff;
+    }
+    .socials {
+      margin-top: .8rem;
+      display: flex;
+      gap: .5rem;
+    }
+    .soc-btn {
+      width: 34px;
+      height: 34px;
+      border-radius: 999px;
+      background: rgba(18,18,18,.07);
+      display: grid;
+      place-items: center;
+      font-size: .85rem;
+      cursor: pointer;
+    }
+    footer {
+      text-align: center;
+      padding: 2.5rem 1rem 3rem;
+      font-size: .7rem;
+      opacity: .7;
+    }
+
+    @media (max-width: 980px) {
+      .hero { grid-template-columns: 1fr; }
+      #about { grid-template-columns: 1fr; }
+      #portraits .content { grid-template-columns: 1fr; }
+      #others .grid-others { grid-template-columns: 1fr; }
+      #contact .contact-grid { grid-template-columns: 1fr; }
+      .nav-links { display: none; }
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <div class="nav">
+      <div class="brand">
+        <div class="brand-icon">V</div>
+        VEGGIEBOX
+      </div>
+      <nav class="nav-links">
+        <a href="#about" class="active">About Us</a>
+        <a href="#portraits">Portraits</a>
+        <a href="#others">Others</a>
+        <a href="#contact">Contact</a>
+      </nav>
+      <button class="btn" onclick="document.getElementById('join-us').scrollIntoView({behavior:'smooth'})">Join Us</button>
+    </div>
+  </header>
+
+  <!-- HERO -->
+  <section class="hero" id="top">
+    <div class="hero-left">
+      <small>Our Group Names : Arthur · Louise · Laura · Charlotte · Antoine</small>
+      <h1 class="hero-title">VEGGIEBOX</h1>
+      <p class="hero-slogan">Bring the Garden to Your City Apartment</p>
+      <p class="group-names">Urban gardening kits · Small spaces · Beginner friendly</p>
+      <div class="hero-actions">
+        <button class="btn" onclick="document.getElementById('join-us').scrollIntoView({behavior:'smooth'})">Join Us</button>
+        <a href="#about" style="font-size:.8rem; opacity:.7;">Learn more ↓</a>
+      </div>
+    </div>
+    <div class="hero-right">
+      <div class="hero-overlay"></div>
+      <div class="hero-card">
+        <h3>Fresh products & plant pots</h3>
+      </div>
+      <span class="badge">Urban · Green · Cozy</span>
+    </div>
+  </section>
+
+  <!-- ABOUT -->
+  <div class="wrapper" id="about">
+    <div>
+      <p class="about-title">About VEGGIEBOX</p>
+      <p class="about-sub">Discover the urban Garden !</p>
+      <p class="about-text">
+        Discover VeggieBox, the ultimate solution for urban gardening. Our city gardening kits are designed for people with limited space—perfect for apartments, balconies, or small kitchens. Enjoy grow vegetables at home: indoor fresh herbs without the hassle.
+      </p>
+    </div>
+    <div class="about-middle">
+      <div class="plant-card">
+        <img src="https://images.unsplash.com/photo-1524592094714-0f0654e20314?auto=format&fit=crop&w=500&q=70" alt="Fresh basil pot with sunshine" />
+        <p style="font-weight:500; color:var(--green-dark);">Fresh basil pot</p>
+        <p style="font-size:.72rem; opacity:.6;">Indoor · Sunny corner · VeggieBox style</p>
+      </div>
+    </div>
+    <div>
+      <p style="font-size:.9rem; opacity:.75;">
+        Our kits are compact, sustainable and easy to install. One box = everything you need.
+      </p>
+      <ul style="font-size:.8rem; padding-left:1.1rem;">
+        <li>Perfect for students & young professionals</li>
+        <li>Can be placed in the kitchen or balcony</li>
+        <li>Sustainable materials</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- PORTRAITS / WHAT'S INSIDE -->
+  <div class="wrapper" id="portraits">
+    <div class="section-title">
+      <h2>What’s Inside Your VeggieBox?</h2>
+      <small>Everything your Canva described</small>
+    </div>
+    <div class="content">
+      <div>
+        <div class="box-list">
+          <h3>In each kit, you get:</h3>
+          <ul>
+            <li>Organic seeds for vegetables and herbs</li>
+            <li>Eco-friendly, recyclable pots and materials</li>
+            <li>Step-by-step guides to help beginners get started</li>
+            <li>Access to the VeggieBox app to track growth and receive personalized tips</li>
+          </ul>
+          <div class="quote-box">
+            “ Whether you’re a beginner or an eco-friendly gardening kits, VeggieBox makes gardening easy, fun, and rewarding. ”
+          </div>
+        </div>
+      </div>
+      <div class="img-apartment">
+        <div class="label">
+          each urban gardening kit comes with everything you need to grow fresh vegetables and herbs at home
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- OTHERS: Visions + Testimonials -->
+  <div class="wrapper" id="others">
+    <div class="section-title">
+      <h2>Our Visions & They Trust Us</h2>
+      <small>From your Canva pages 4–5</small>
+    </div>
+    <div class="grid-others">
+      <div class="card">
+        <h3>Our Visions</h3>
+        <p>VeggieBox is much more than an urban gardening kit company.</p>
+        <p>We are passionate about nature and sustainability, we are committed to making gardening accessible and fun for all.</p>
+        <p>Our Kits include organic seeds, ecological pots, step-by-step guides and an DIY application to accompany you on your gardening adventure.</p>
+      </div>
+      <div class="card">
+        <h3>Illustrations of our vision</h3>
+        <p style="font-size:.8rem; opacity:.7;">To help the visitor understand:</p>
+        <div class="visions-illustrations">
+          <span class="vision-pill">🌱 Organic seeds</span>
+          <span class="vision-pill">🟤 Natural soil</span>
+          <span class="vision-pill">🧱 City apartment</span>
+          <span class="vision-pill">📱 DIY app</span>
+          <span class="vision-pill">♻️ Eco pots</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="testimonials" style="margin-top:1.4rem;">
+      <div class="product-illu">
+        🪴
+        <p style="font-size:.7rem; margin-top:.3rem; opacity:.6;">VeggieBox product illustration</p>
+      </div>
+      <div>
+        <h3>They Trust Us</h3>
+        <div class="reviews">
+          <div class="review">
+            <strong>Sophie Jones</strong>
+            <p>“The Veggiebox kits have transformed my balcony into a lush little garden. The instructions are clear, the plants grow quickly, and I harvested my own organic vegetables in no time.”</p>
+          </div>
+          <div class="review">
+            <strong>Charlie Brown</strong>
+            <p>“As a beginner, I was afraid to try my hand at gardening, but VeggieBox made it easy for me. I highly recommend their kits to anyone who wants to get started.”</p>
+          </div>
+          <div class="review">
+            <strong>Marie Collin</strong>
+            <p>“VeggieBox allowed me to grow fresh herbs in my apartment, it's so practical and satisfying.”</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- CONTACT -->
+  <div class="wrapper" id="contact">
+    <div class="section-title">
+      <h2>Contact</h2>
+      <small>Last Canva page</small>
+    </div>
+    <div class="contact-grid">
+      <div class="contact-card">
+        <h3>Headquarter</h3>
+        <p>217 Av. Pierre Brossolette, 10000 Troyes</p>
+        <p>01 23 45 67 89</p>
+        <p><a href="mailto:VeggieBox@canvasupersite.fr">VeggieBox@canvasupersite.fr</a></p>
+      </div>
+      <div class="contact-card">
+        <h3>Opening hours</h3>
+        <p>Monday - Close</p>
+        <p>Tuesday 9h-18h</p>
+        <p>Wednesday 9h-18h</p>
+        <p>Thursday 9h-18h</p>
+        <p>Vendredi : 9h - 18h </p>
+        <p>Samedi : 9h - 12h</p>
+      </div>
+      <div class="contact-card">
+        <h3>HELP</h3>
+        <p><a href="#">Deliveries and returns</a></p>
+        <p><a href="#">FAQ</a></p>
+        <p><a href="#">Legal notices</a></p>
+        <p><a href="#">Cookie policy</a></p>
+        <p><a href="#">Privacy policy</a></p>
+        <p><a href="#">Terms of use</a></p>
+      </div>
+    </div>
+
+    <!-- JOIN US FORM -->
+    <div class="contact-card" id="join-us" style="margin-bottom:1.5rem;">
+      <h3>Join Us</h3>
+      <p style="font-size:.8rem; opacity:.7;">Fill the form to join the VeggieBox project.</p>
+      <form onsubmit="event.preventDefault(); alert('Thank you for joining VeggieBox!');" style="display:flex; gap:.5rem; flex-wrap:wrap;">
+        <input type="text" placeholder="Full name" required style="flex:1 1 140px;">
+        <input type="email" placeholder="Email address" required style="flex:1 1 140px;">
+        <input type="text" placeholder="Why do you want to join?" style="flex:1 1 220px;">
+        <button class="btn" type="submit">Send</button>
+      </form>
+    </div>
+
+    <!-- Newsletter + socials -->
+    <div class="newsletter">
+      <div>
+        <h3>Newsletter subscription</h3>
+        <p style="font-size:.78rem; opacity:.6;">Subscribe to our newsletter by mail.</p>
+      </div>
+      <form onsubmit="event.preventDefault(); alert('Subscribed to VeggieBox!');">
+        <input type="email" placeholder="Your email" required>
+        <button class="btn" type="submit">Subscribe</button>
+      </form>
+      <div style="flex-basis:100%;"></div>
+      <div>
+        <p style="font-size:.78rem; opacity:.6; margin-bottom:.4rem;">Follow us</p>
+        <div class="socials">
+          <div class="soc-btn" title="Facebook">f</div>
+          <div class="soc-btn" title="Instagram">IG</div>
+          <div class="soc-btn" title="X / Twitter">x</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <footer>
+    © VeggieBox – Group project (Arthur · Louise · Laura · Charlotte · Antoine).
+  </footer>
+
+</body>
+</html>
