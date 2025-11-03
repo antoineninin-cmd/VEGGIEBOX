@@ -7,7 +7,12 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
-  <!-- Google tag (gtag.js) — place one per page -->
+  <!-- Cookiebot (put first in <head> on every page) -->
+  <script id="Cookiebot" src="https://consent.cookiebot.com/uc.js" data-cbid="e654d6a4-7b00-426b-8a39-e09ae229d0f4" type="text/javascript" async></script>
+  <!-- If you want Cookiebot to auto-block tags until consent, use this instead: -->
+  <!-- <script id="Cookiebot" src="https://consent.cookiebot.com/uc.js" data-cbid="e654d6a4-7b00-426b-8a39-e09ae229d0f4" data-blockingmode="auto" type="text/javascript" async></script> -->
+
+  <!-- Google tag (gtag.js) — one per page -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-WLTVW4YKS5"></script>
   <script>
     window.dataLayer = window.dataLayer || [];
@@ -120,22 +125,14 @@
       gap: 2rem;
       align-items: center;
     }
-    .hero-left small {
-      opacity: .6;
-      font-size: .75rem;
-    }
+    .hero-left small { opacity: .6; font-size: .75rem; }
     .hero-title {
       font-size: clamp(3rem, 6vw, 4rem);
       line-height: .9;
       margin: 1.1rem 0 .8rem;
       letter-spacing: -.03em;
     }
-    .hero-slogan {
-      font-size: 1.05rem;
-      font-weight: 500;
-      margin-bottom: 1rem;
-      color: var(--brown);
-    }
+    .hero-slogan { font-size: 1.05rem; font-weight: 500; margin-bottom: 1rem; color: var(--brown); }
     .group-names {
       background: rgba(255,255,255,.8);
       border: 1px solid rgba(155,107,67,.1);
@@ -147,12 +144,7 @@
       margin-bottom: 1.4rem;
       box-shadow: 0 10px 20px rgba(155,107,67,.08);
     }
-    .hero-actions {
-      display: flex;
-      gap: .9rem;
-      flex-wrap: wrap;
-      align-items: center;
-    }
+    .hero-actions { display: flex; gap: .9rem; flex-wrap: wrap; align-items: center; }
     .hero-right {
       background-image: url("AdobeStock_428593284 (1).jpeg");
       background-size: cover;
@@ -163,258 +155,92 @@
       box-shadow: var(--shadow);
       overflow: hidden;
     }
-    .hero-overlay {
-      position: absolute;
-      inset: 0;
-      background: radial-gradient(circle, rgba(10,32,15,.05), rgba(0,0,0,.38));
-    }
+    .hero-overlay { position: absolute; inset: 0; background: radial-gradient(circle, rgba(10,32,15,.05), rgba(0,0,0,.38)); }
     .hero-card {
-      position: absolute;
-      bottom: 1.1rem;
-      left: 1.1rem;
-      background: rgba(255,255,255,.96);
-      border-radius: 1.2rem;
-      padding: .8rem 1rem;
-      max-width: 290px;
-      box-shadow: 0 16px 40px rgba(0,0,0,.12);
+      position: absolute; bottom: 1.1rem; left: 1.1rem;
+      background: rgba(255,255,255,.96); border-radius: 1.2rem; padding: .8rem 1rem; max-width: 290px; box-shadow: 0 16px 40px rgba(0,0,0,.12);
     }
     .badge {
-      position: absolute;
-      top: 1.1rem;
-      right: 1.1rem;
-      background: rgba(255,255,255,.2);
-      border: 1px solid rgba(255,255,255,.6);
-      border-radius: 999px;
-      padding: .25rem .7rem;
-      font-size: .7rem;
-      color: #fff;
+      position: absolute; top: 1.1rem; right: 1.1rem;
+      background: rgba(255,255,255,.2); border: 1px solid rgba(255,255,255,.6);
+      border-radius: 999px; padding: .25rem .7rem; font-size: .7rem; color: #fff;
     }
 
     section { scroll-margin-top: 80px; }
-    .wrapper {
-      max-width: 1180px;
-      margin: 0 auto;
-      padding: 3.3rem 1.1rem;
-    }
+    .wrapper { max-width: 1180px; margin: 0 auto; padding: 3.3rem 1.1rem; }
     .section-title {
-      font-size: 2rem;
-      margin-bottom: 1.4rem;
-      display: flex;
-      justify-content: space-between;
-      gap: 1rem;
-      align-items: center;
-      flex-wrap: wrap;
+      font-size: 2rem; margin-bottom: 1.4rem;
+      display: flex; justify-content: space-between; gap: 1rem; align-items: center; flex-wrap: wrap;
     }
     .section-title small { opacity: .6; }
 
     /* ABOUT */
     #about {
-      display: grid;
-      grid-template-columns: 1.1fr 1fr 1.1fr;
-      gap: 1.6rem;
-      align-items: center;
+      display: grid; grid-template-columns: 1.1fr 1fr 1.1fr; gap: 1.6rem; align-items: center;
     }
     .about-title { font-size: 1.5rem; margin-bottom: .3rem; }
     .about-sub { font-weight: 500; margin-bottom: 1rem; color: var(--green-dark); }
     .about-text { font-size: .87rem; opacity: .78; }
     .about-middle { display: grid; place-items: center; }
-    .plant-card {
-      background: radial-gradient(circle, #fff 0%, #e1f3db 100%);
-      border-radius: 1.4rem;
-      padding: 1.1rem;
-      box-shadow: 0 14px 40px rgba(0,0,0,.06);
-      text-align: center;
-    }
-    .plant-card img {
-      width: 190px;
-      border-radius: 1.2rem;
-      display: block;
-      margin: 0 auto .5rem;
-      height: auto;
-      max-width: 100%;
-    }
+    .plant-card { background: radial-gradient(circle, #fff 0%, #e1f3db 100%); border-radius: 1.4rem; padding: 1.1rem; box-shadow: 0 14px 40px rgba(0,0,0,.06); text-align: center; }
+    .plant-card img { width: 190px; max-width: 100%; height: auto; border-radius: 1.2rem; display: block; margin: 0 auto .5rem; }
 
-    /* PORTRAITS / WHAT'S INSIDE */
+    /* PORTRAITS */
     #portraits .content {
-      display: grid;
-      grid-template-columns: 1.05fr .95fr;
-      gap: 1.5rem;
-      align-items: center;
+      display: grid; grid-template-columns: 1.05fr .95fr; gap: 1.5rem; align-items: center;
     }
-    .box-list {
-      background: #fff;
-      border-radius: 1.4rem;
-      padding: 1.1rem 1.2rem;
-      box-shadow: 0 16px 40px rgba(0,0,0,.04);
-      border-left: 4px solid rgba(155,107,67,.25);
-    }
+    .box-list { background: #fff; border-radius: 1.4rem; padding: 1.1rem 1.2rem; box-shadow: 0 16px 40px rgba(0,0,0,.04); border-left: 4px solid rgba(155,107,67,.25); }
     .box-list ul { padding-left: 1rem; margin-bottom: 1rem; }
-    .quote-box {
-      background: rgba(155,107,67,.12);
-      border-left: 3px solid rgba(155,107,67,.6);
-      border-radius: 1rem;
-      padding: .6rem .8rem;
-      font-style: italic;
-      font-size: .9rem;
-    }
+    .quote-box { background: rgba(155,107,67,.12); border-left: 3px solid rgba(155,107,67,.6); border-radius: 1rem; padding: .6rem .8rem; font-style: italic; font-size: .9rem; }
     .img-apartment {
       background-image: url("photo-1592150621744-aca64f48394a.jpeg");
-      background-size: cover;
-      background-position: center;
-      border-radius: 1.4rem;
-      min-height: 330px;
-      position: relative;
-      overflow: hidden;
-      box-shadow: 0 20px 45px rgba(0,0,0,.12);
+      background-size: cover; background-position: center; border-radius: 1.4rem; min-height: 330px; position: relative; overflow: hidden; box-shadow: 0 20px 45px rgba(0,0,0,.12);
     }
     .img-apartment .label {
-      position: absolute;
-      bottom: 1rem;
-      right: 1rem;
-      background: rgba(255,255,255,.95);
-      padding: .5rem .8rem;
-      border-radius: 1rem;
-      font-size: .72rem;
-      max-width: 220px;
-      border: 1px solid rgba(155,107,67,.1);
+      position: absolute; bottom: 1rem; right: 1rem; background: rgba(255,255,255,.95);
+      padding: .5rem .8rem; border-radius: 1rem; font-size: .72rem; max-width: 220px; border: 1px solid rgba(155,107,67,.1);
     }
 
     /* OTHERS */
-    #others .grid-others {
-      display: grid;
-      grid-template-columns: 1.1fr 1.1fr;
-      gap: 1.3rem;
-      margin-bottom: 2.5rem;
-    }
-    .card {
-      background: #fff;
-      border-radius: 1.4rem;
-      padding: 1rem 1.1rem 1.25rem;
-      box-shadow: 0 16px 40px rgba(0,0,0,.03);
-    }
-    .visions-illustrations {
-      display: flex;
-      gap: .6rem;
-      flex-wrap: wrap;
-    }
-    .vision-pill {
-      background: rgba(76,175,80,.12);
-      border: 1px solid rgba(76,175,80,.12);
-      padding: .4rem .8rem;
-      border-radius: .9rem;
-      font-size: .78rem;
-    }
+    #others .grid-others { display: grid; grid-template-columns: 1.1fr 1.1fr; gap: 1.3rem; margin-bottom: 2.5rem; }
+    .card { background: #fff; border-radius: 1.4rem; padding: 1rem 1.1rem 1.25rem; box-shadow: 0 16px 40px rgba(0,0,0,.03); }
+    .visions-illustrations { display: flex; gap: .6rem; flex-wrap: wrap; }
+    .vision-pill { background: rgba(76,175,80,.12); border: 1px solid rgba(76,175,80,.12); padding: .4rem .8rem; border-radius: .9rem; font-size: .78rem; }
     .testimonials {
-      background: #fff;
-      border-radius: 1.2rem;
-      padding: 1.1rem;
-      display: grid;
-      grid-template-columns: minmax(210px, .6fr) 1fr;
-      gap: 1.2rem;
-      align-items: center;
-      box-shadow: 0 12px 28px rgba(0,0,0,.03);
+      background: #fff; border-radius: 1.2rem; padding: 1.1rem;
+      display: grid; grid-template-columns: minmax(210px, .6fr) 1fr; gap: 1.2rem; align-items: center; box-shadow: 0 12px 28px rgba(0,0,0,.03);
     }
-    .product-illu {
-      background: linear-gradient(150deg, rgba(155,107,67,.08), rgba(76,175,80,.18));
-      border-radius: 1rem;
-      display: grid;
-      place-items: center;
-      font-size: 3rem;
-      min-height: 180px;
-    }
-    .product-illu img {
-      max-width: 100%;
-      height: auto;
-      border-radius: 1rem;
-    }
+    .product-illu { background: linear-gradient(150deg, rgba(155,107,67,.08), rgba(76,175,80,.18)); border-radius: 1rem; display: grid; place-items: center; font-size: 3rem; min-height: 180px; }
+    .product-illu img { max-width: 100%; height: auto; border-radius: 1rem; }
     .reviews { display: grid; gap: .85rem; }
-    .review {
-      background: rgba(249,248,244,0.7);
-      border-radius: 1rem;
-      padding: .4rem .6rem .6rem;
-      border-left: 4px solid rgba(76,175,80,.25);
-    }
+    .review { background: rgba(249,248,244,0.7); border-radius: 1rem; padding: .4rem .6rem .6rem; border-left: 4px solid rgba(76,175,80,.25); }
 
     /* CONTACT */
-    #contact .contact-grid {
-      display: grid;
-      grid-template-columns: repeat(3, minmax(0,1fr));
-      gap: 1rem;
-      margin-bottom: 1.5rem;
-    }
-    .contact-card {
-      background: #fff;
-      border-radius: 1.1rem;
-      padding: 1rem 1rem 1.2rem;
-      box-shadow: 0 8px 20px rgba(0,0,0,.03);
-    }
+    #contact .contact-grid { display: grid; grid-template-columns: repeat(3, minmax(0,1fr)); gap: 1rem; margin-bottom: 1.5rem; }
+    .contact-card { background: #fff; border-radius: 1.1rem; padding: 1rem 1rem 1.2rem; box-shadow: 0 8px 20px rgba(0,0,0,.03); }
     .newsletter {
-      background: #fff;
-      border-radius: 1rem;
-      padding: 1.1rem;
-      box-shadow: 0 8px 20px rgba(0,0,0,.03);
-      display: flex;
-      gap: .6rem;
-      flex-wrap: wrap;
-      align-items: center;
-      justify-content: space-between;
+      background: #fff; border-radius: 1rem; padding: 1.1rem; box-shadow: 0 8px 20px rgba(0,0,0,.03);
+      display: flex; gap: .6rem; flex-wrap: wrap; align-items: center; justify-content: space-between;
     }
-    .newsletter form {
-      display: flex;
-      gap: .5rem;
-      flex-wrap: wrap;
+    .newsletter form { display: flex; gap: .5rem; flex-wrap: wrap; }
+    input[type="email"], input[type="text"] {
+      border: 1px solid rgba(0,0,0,0.05); border-radius: .9rem; padding: .5rem .7rem; font-family: inherit; min-width: 210px; background: #fff;
     }
-    input[type="email"],
-    input[type="text"] {
-      border: 1px solid rgba(0,0,0,0.05);
-      border-radius: .9rem;
-      padding: .5rem .7rem;
-      font-family: inherit;
-      min-width: 210px;
-      background: #fff;
-    }
-    .socials {
-      margin-top: .8rem;
-      display: flex;
-      gap: .5rem;
-    }
-    .soc-btn {
-      width: 34px;
-      height: 34px;
-      border-radius: 999px;
-      background: rgba(18,18,18,.07);
-      display: grid;
-      place-items: center;
-      font-size: .85rem;
-      cursor: pointer;
-    }
-    footer {
-      text-align: center;
-      padding: 2.5rem 1rem 3rem;
-      font-size: .7rem;
-      opacity: .7;
-    }
+    .socials { margin-top: .8rem; display: flex; gap: .5rem; }
+    .soc-btn { width: 34px; height: 34px; border-radius: 999px; background: rgba(18,18,18,.07); display: grid; place-items: center; font-size: .85rem; cursor: pointer; }
+    footer { text-align: center; padding: 2.5rem 1rem 3rem; font-size: .7rem; opacity: .7; }
 
     /* RESPONSIVE */
-    @media (max-width: 1180px) {
-      .hero {
-        gap: 1.6rem;
-      }
-    }
-
+    @media (max-width: 1180px) { .hero { gap: 1.6rem; } }
     @media (max-width: 980px) {
       .hero { grid-template-columns: 1fr; }
       .hero-right { min-height: 300px; }
-      #about { grid-template-columns: 1fr; }
-      #portraits .content { grid-template-columns: 1fr; }
-      #others .grid-others { grid-template-columns: 1fr; }
-      #contact .contact-grid { grid-template-columns: 1fr; }
+      #about, #portraits .content, #others .grid-others, #contact .contact-grid { grid-template-columns: 1fr; }
       .nav-links { display: none; }
       .newsletter { flex-direction: column; align-items: flex-start; }
       .newsletter form { width: 100%; }
       .newsletter input[type="email"] { flex: 1; }
     }
-
     @media (max-width: 640px) {
       .hero { padding-top: 1.2rem; }
       .hero-title { font-size: clamp(2.4rem, 11vw, 3rem); }
@@ -424,7 +250,6 @@
       .newsletter input, .newsletter button { width: 100%; }
       .section-title { flex-direction: column; align-items: flex-start; }
     }
-
     @media (max-width: 420px) {
       .hero-title { line-height: 1; }
       .contact-card, .card, .box-list { padding: .9rem .85rem 1rem; }
@@ -449,6 +274,7 @@
     </div>
   </header>
 
+  <!-- HERO -->
   <section class="hero" id="top">
     <div class="hero-left">
       <small>Our Group Names : Arthur · Louise · Laura · Charlotte · Antoine</small>
@@ -468,6 +294,7 @@
     </div>
   </section>
 
+  <!-- ABOUT -->
   <div class="wrapper" id="about">
     <div>
       <p class="about-title">About VEGGIEBOX</p>
@@ -493,6 +320,7 @@
     </div>
   </div>
 
+  <!-- PORTRAITS -->
   <div class="wrapper" id="portraits">
     <div class="section-title">
       <h2>What’s Inside Your VeggieBox?</h2>
@@ -512,12 +340,11 @@
           </div>
         </div>
       </div>
-      <div class="img-apartment">
-          <!-- illustration only -->
-      </div>
+      <div class="img-apartment"></div>
     </div>
   </div>
 
+  <!-- OTHERS -->
   <div class="wrapper" id="others">
     <div class="section-title">
       <h2>Our Visions & They Trust Us</h2>
@@ -565,6 +392,7 @@
     </div>
   </div>
 
+  <!-- CONTACT -->
   <div class="wrapper" id="contact">
     <div class="section-title">
       <h2>Contact</h2>
@@ -596,6 +424,7 @@
       </div>
     </div>
 
+    <!-- JOIN US FORM -->
     <div class="contact-card" id="join-us" style="margin-bottom:1.5rem;">
       <h3>Join Us</h3>
       <p style="font-size:.8rem; opacity:.7;">Fill the form to join the VeggieBox project.</p>
@@ -607,6 +436,7 @@
       </form>
     </div>
 
+    <!-- Newsletter + socials -->
     <div class="newsletter">
       <div>
         <h3>Newsletter subscription</h3>
